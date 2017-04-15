@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  padding: 10px;
+}
+
+.choice {
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice label {
+  text-align: center;
+  font-size: 2em;
+}
+
+input[type="checkbox"] {
+  margin-top: 5px; 
+  margin-right: 5px; 
+  transform: scale(1.5);
+}
+
+input[type="checkbox"]:checked+label { 
+  font-weight: bold; 
+} 
+
+#outlet {
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  font-size: 65vmin;
+  line-height: 75vmax;
+}

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html manifest="offline.appcache">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Readerer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="choices">
+    <div class="choice">
+      <input type="checkbox" id="numbers" name="numbers" value="numbers" checked="checked">
+      <label for="numbers">Show Numbers</label>
+    </div>
+    <div class="choice">
+      <input type="checkbox" id="letters" name="letters" value="letters">
+      <label for="letters">Show Letters</label>
+    </div>
+  </div>
+  <div id="outlet"></div>
+
+  <script>
+    var outlet = document.getElementById('outlet');
+    
+    function getRandomLetter() {
+      var randomIndex = Math.floor(Math.random() * 25);
+      return "ABCDEFGHIJKLMNOPQRSTUVXYZ".charAt(randomIndex);
+    }
+    
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 15);
+    }
+
+    function chooseNext() {
+      var useNumbers = document.getElementById('numbers').checked;
+      var useLetters = document.getElementById('letters').checked;
+
+      if (!useLetters) { return getRandomNumber(); }
+      if (!useNumbers) { return getRandomLetter(); }
+
+      if (Math.floor(Math.random() * 25) % 2 == 0) {
+        return getRandomLetter();
+      } else {
+        return getRandomNumber();
+      }
+    }
+
+    function outputNext() {
+      outlet.innerHTML = chooseNext();
+    }
+    
+    outputNext();
+    setInterval(outputNext, 2500);
+  </script>
+</body>
+</html>
