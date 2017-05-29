@@ -4,13 +4,14 @@ body {
   font-family: 'Amaranth', sans-serif;
   height: 100vh;
   margin: 0;
+  width: 100vw;
 }
 
 .choices {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  padding: 10px;
+  padding: 15px 0 10px;
   width: 100%;
 }
 
