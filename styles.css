@@ -1,46 +1,78 @@
 body {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  height: 100vh;
   font-family: 'Amaranth', sans-serif;
+  height: 100vh;
+  margin: 0;
 }
 
 .choices {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  width: 100%;
   padding: 10px;
+  width: 100%;
 }
 
 .choice {
-  width: 49%;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 49%;
 }
 
 .choice label {
-  text-align: center;
   font-size: 2em;
+  text-align: center;
 }
 
 input[type="checkbox"] {
-  margin-top: 5px; 
-  margin-right: 5px; 
+  margin-right: 5px;
+  margin-top: 5px;
   transform: scale(1.5);
 }
 
-input[type="checkbox"]:checked+label { 
-  font-weight: bold; 
-} 
+input[type="checkbox"]:checked+label {
+  font-weight: bold;
+}
 
 #outlet {
-  width: 100%;
-  text-align: center;
+  flex-grow: 4;
   font-size: 65vmin;
   line-height: 65vmin;
-  flex-grow: 4;
-  padding-top:10%;
+  padding-top: 10%;
+  text-align: center;
+  width: 100%;
 }
+
+.progress {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.nano {
+  height: 5px;
+}
+
+@-webkit-keyframes show-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes show-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.indicator {
+  -webkit-animation: show-progress 2s steps(100) infinite;
+  animation: show-progress 2.5s steps(100) infinite;
+  background-color: black;
+  height: 100%;
+  width: 20%;
+}
+
+
+
