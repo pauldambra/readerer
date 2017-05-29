@@ -22,6 +22,14 @@
   <div id="outlet"></div>
 
   <script>
+    //allow next character to be chosen
+
+    var pressedKey = null;
+
+    document.body.addEventListener("keyup", function(ev) {
+      pressedKey= ev.key;
+    });
+
     var outlet = document.getElementById('outlet');
     
     function getRandomLetter() {
@@ -34,6 +42,12 @@
     }
 
     function chooseNext() {
+      if (pressedKey) {
+        var x = pressedKey;
+        pressedKey = null;
+        return x;
+      }
+
       var useNumbers = document.getElementById('numbers').checked;
       var useLetters = document.getElementById('letters').checked;
 
